@@ -1,19 +1,27 @@
 # Raspberry PI 3 install and configuration procedures
 
-## First configuration
+## Initial configuration
+
+#### Appareance and session settings
 * modifying background
 * modifying appearance
 * modifying keyboard and mouse settings
 * adding .bash_aliases and aliases
+
+#### Network and accounts
 * modifying pi password and hostname in /etc/hostname
 * enabling ssh with raspi-config
 * creating a google account pi.guenegaud@gmail.com (15gb on google drive)
 * sudo apt-get -y update && sudo apt-get -y upgrade
-* added github account as piGuenegaud
+* adding github account as piGuenegaud
+
+#### Enabling bluetooth
+* using bluetoothctl
+* [Bluetooth tutorial](https://www.maker.io/en/blogs/raspberry-pi-3-how-to-configure-wi-fi-and-bluetooth/03fcd2a252914350938d8c5471cf3b63)
 
 ## Installing LAMP (Apache2, MySQL, PHP5)
 Instructions from [StewRight blog](https://www.stewright.me/2012/09/tutorial-install-apache-php-and-mysql-on-raspberry-pi/)
-```bash
+```Shell
 sudo apt-get install apache2 apache2-utils apache2-doc
 sudo apt-get install libapache2-mod-php5 php5 php-pear php5-xcache
 sudo apt-get install php5-mysql
@@ -23,7 +31,7 @@ sudo apt-get install mysql-server mysql-client
 
 ## Installing phpmyadmin
 Instructions from [StewRight blog](https://www.stewright.me/2012/09/tutorial-install-phpmyadmin-on-your-raspberry-pi/)
-```bash
+```Shell
 sudo apt-get install phpmyadmin
 nano /etc/apache2/apache2.conf add at the end Include /etc/phpmyadmin/apache.conf
 ```
@@ -31,7 +39,7 @@ nano /etc/apache2/apache2.conf add at the end Include /etc/phpmyadmin/apache.con
 
 ## Installing wordpress
 Instructions from [Raspberry PI official website](https://www.raspberrypi.org/learning/lamp-web-server-with-wordpress/worksheet/)
-```bash
+```Shell
 sudo wget http://wordpress.org/latest.tar.gz
 sudo tar xzf latest.tar.gz
 cd wordpress
@@ -50,7 +58,7 @@ chown www-data */*/*
 
 ## Installing mediawiki
 Instructions from [Trevor Appleton blog](http://trevorappleton.blogspot.fr/2013/04/installing-mediawiki-on-raspberry-pi.html)
-```bash
+```Shell
 sudo apt-get install mediawiki
 sudo apt-get install php-apc imagemagick
 sudo nano /etc/mediawiki/apache.conf and add the alias
@@ -63,7 +71,7 @@ sudo apache2ctl restart
 
 ## Installig GOGS (instead of gitlab)
 GOGS chosen instead of gitlab. Instructions from [GOGS website](http://blog.meinside.pe.kr/Gogs-on-Raspberry-Pi/)
-```bash
+```Shell
 wget .../gogs.zip #Linux raspberry pi
 unzip gogs.zip -d gogs
 cd gogs
@@ -71,7 +79,7 @@ cd gogs
 ```
 
 If we had chosen gitlab:
-```bash
+```Shell
 sudo apt-get install curl openssh-server ca-certificates postfix apt-transport-https
 curl https://packages.gitlab.com/gpg.key | sudo apt-key add -
 sudo curl -sS https://packages.gitlab.com/install/repositories/gitlab/raspberry-pi2/script.deb.sh | sudo bash
@@ -80,7 +88,7 @@ sudo apt-get install gitlab-ce
 
 ## Installing owncloud
 Instructions from [Raspbian](http://raspbian-france.fr/owncloud-cloud-raspberry-pi/)
-```bash
+```Shell
 sudo apt-get install owncloud
 sudo nano /etc/php5/apache2/php.ini
 sudo nano /etc/apache2/apache2.conf
