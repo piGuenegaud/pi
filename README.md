@@ -61,7 +61,16 @@ sudo apache2ctl restart
 
 ## Installing phpbb3
 
-## Installig gitlab
+## Installig GOGS (instead of gitlab)
+GOGS chosen instead of gitlab. Instructions from [GOGS website](http://blog.meinside.pe.kr/Gogs-on-Raspberry-Pi/)
+```bash
+wget .../gogs.zip #Linux raspberry pi
+unzip gogs.zip -d gogs
+cd gogs
+./gogs web
+```
+
+If we had chosen gitlab:
 ```bash
 sudo apt-get install curl openssh-server ca-certificates postfix apt-transport-https
 curl https://packages.gitlab.com/gpg.key | sudo apt-key add -
@@ -86,4 +95,6 @@ GRANT ALL PRIVILEGES ON owncloud.* TO pi_cloud@localhost IDENTIFIED BY 'Lolopolo
 ```bash
 sudo /etc/init.d/apache2 reload
 sudo /etc/init.d/apache2 restart
+sudo dpkg --remove --force-remove-reinstreq package
+sudo dpkg --configure -a
 ```
